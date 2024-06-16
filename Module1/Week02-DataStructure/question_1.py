@@ -32,10 +32,3 @@ if __name__ == "__main__":
 
     print(max_sliding_window(num_list, k))
 
-
-
-
-
-
-
-
