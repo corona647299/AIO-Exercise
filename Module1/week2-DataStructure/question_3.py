@@ -24,3 +24,5 @@ def count_words_from_file(file_path):
 
 if __name__ == "__main__":    
     file_path = r"C:\Users\ADMIN\Downloads\P1_data.txt"
+
+    print(count_words_from_file(file_path))

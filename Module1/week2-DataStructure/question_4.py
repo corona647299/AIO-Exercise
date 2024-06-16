@@ -22,3 +22,8 @@ def levenshtein_distance(s, t):
     # Trả về khoảng cách Levenshtein giữa hai chuỗi
     return dp[len(s)][len(t)]
 
+if __name__ == "__main__":
+    # Ví dụ 
+    s1 = "yu"
+    s2 = "you"
+    print(f"Levenshtein distance between '{s1}' and '{s2}' is: {levenshtein_distance(s1, s2)}")
