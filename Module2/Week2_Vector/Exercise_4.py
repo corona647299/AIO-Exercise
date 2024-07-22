@@ -15,15 +15,9 @@ differences = cv2.absdiff(bg1_image, ob_image)
 differences_single = np.sum(differences, axis=2) / 3.0
 differences_single = differences_single.astype(np.uint8)
 
-def compute_binary_mask(differences_single):
-    differences_binary = np.where(differences_single >= 15, 255, 0)
-    differences_binary = np.stack((differences_binary,)*3, axis=-1)
-    return differences_binary
 binary_img = np.where(differences_single >= 15, 255, 0)
 binary_img = np.stack((binary_img,)*3, axis=-1)
 
-binary_mask = compute_binary_mask(differences_single)
-bg2_image = cv2.cvtColor(bg2_image, cv2.COLOR_BGR2GRAY)
-output = np.where(compute_binary_mask == 255, ob_image, bg2_image)
+output = np.where(binary_img == 255, ob_image, bg2_image)
 cv2.imshow('Image Window', output)
 cv2.waitKey(0)
